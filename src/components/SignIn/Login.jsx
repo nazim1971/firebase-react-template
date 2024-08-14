@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { FaGoogle, FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import {  FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
@@ -35,7 +35,7 @@ const onSubmit = (data) => {
     })
     .catch((err) => {
       if (err.code === "auth/invalid-credential") {
-        toast.warning("Invalid user/password");
+        toast.error("Invalid user/password");
       }
     });
 }
@@ -128,7 +128,7 @@ const handleGoogleLogin = () => {
                   <span className="w-1/5 border-b md:w-1/4"></span>
               </div>
           </div>
-      </div> <ToastContainer/>
+      </div>
   </div>
     );
 };

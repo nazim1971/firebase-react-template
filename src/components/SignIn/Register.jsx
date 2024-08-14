@@ -1,10 +1,9 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
 
@@ -58,7 +57,7 @@ const Register = () => {
         });
       }).catch((error) => {
         if (error.code === "auth/email-already-in-use") {
-          toast.warning("This Email Already Used");
+          toast.error("This Email Already Used");
         } else {
 
           toast.error("An error occurred");
@@ -144,7 +143,6 @@ const Register = () => {
           </div>
           <div className="hidden bg-cover lg:block lg:w-1/2" style={{backgroundImage: 'url(https://i.ibb.co/F4SRb4t/sign-up.jpg)'}} ></div>
       </div>
-      <ToastContainer />
     </div>
   );
 };
